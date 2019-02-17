@@ -10,7 +10,8 @@ import { UserNameValidators } from './username.validators';
 export class SignupFormComponent {
   form = new FormGroup(
     {
-      username: new FormControl('',
+      account: new FormGroup({
+        username: new FormControl('',
         [
           Validators.required, 
           Validators.minLength(3), 
@@ -18,9 +19,20 @@ export class SignupFormComponent {
         ],
         UserNameValidators.shouldBeUnique),
       password: new FormControl('',Validators.required)
+      })
+      
     });
 
     get username(){
-      return this.form.get('username');
+      return this.form.get('account.username');
+    }
+
+    login(){
+      //let isValid = authService.login(this.form.value);
+     // if(!isValid){
+        this.form.setErrors({
+          invalidLogin:true
+        });
+     // }
     }
 }
