@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'contact-form',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
-  // constructor() { }
+   users: any[];
+  title = "List of Users";
+  constructor(http: Http) { 
+    http.get('http://localhost:8080/users/all-users').subscribe(response =>{
+      this.users = response.json();
+    })
+  }
 
   ngOnInit() {
   }
