@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormComponent implements OnInit {
 
-  constructor() { }
+  // constructor() { }
 
   ngOnInit() {
+  }
+
+  log(x){
+    console.log(x);
+    
+  }
+
+  submit(f){
+    console.log(f);
   }
 
 }
