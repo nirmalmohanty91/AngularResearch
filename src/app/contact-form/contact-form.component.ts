@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-
+// This is an example of template driven form
 @Component({
   selector: 'contact-form',
   templateUrl: './contact-form.component.html',
