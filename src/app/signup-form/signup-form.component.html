@@ -6,12 +6,13 @@
             id="username" 
             type="text" 
             class="form-control">
+            <div *ngIf="username.pending"> Checking from uniqueness...</div>
             <!--<div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger">User name is required</div>-->
             <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
                 <div *ngIf="username.errors.required">User name is required</div>
                 <div *ngIf="username.errors.minlength">Minimum length is {{ username.errors.minlength.requiredLength}}</div>
                 <div *ngIf="username.errors.cannotContainSpace">No space</div>
-
+                <div *ngIf="username.errors.shouldBeUnique">Username is already taken</div>
             </div>
 
     </div>
